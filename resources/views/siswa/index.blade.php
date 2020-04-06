@@ -36,6 +36,7 @@
                         <th>Jenis Kelamin</th>
                         <th>Agama</th>
                         <th>Alamat</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,9 @@
                         <td>{{$data->jenis_kelamin}}</td>
                         <td>{{$data->agama}}</td>
                         <td>{{$data->alamat}}</td>
+                        <td>
+                            <a href="/siswa/{{$data->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
