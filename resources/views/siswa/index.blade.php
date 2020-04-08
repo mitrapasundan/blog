@@ -40,6 +40,7 @@
                     <td>{{$data->alamat}}</td>
                     <td>
                         <a href="/siswa/{{$data->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/siswa/{{$data->id}}/delete" onclick="return confirm('yakin mau dihapus?')" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
                 @endforeach
