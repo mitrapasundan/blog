@@ -1,51 +1,50 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
-    @if(session('sukses'))
-    <div class="alert alert-success" role="alert">
-        {{session('sukses')}}
-    </div>
-    @endif
-    <div class="row">
-        <div class="col-md-6">
-            <h1>Data Siswa</h1>
-        </div>
-        <div class="col-md-6">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal"
-                data-target="#exampleModal">
-                Tambah data siswa
-            </button>
-        </div>
 
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Nama Depan</th>
-                    <th>Nama Belakang</th>
-                    <th>Jenis Kelamin</th>
-                    <th>Agama</th>
-                    <th>Alamat</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($data_siswa as $data)
-                <tr>
-                    <td>{{$data->nama_depan}}</td>
-                    <td>{{$data->nama_belakang}}</td>
-                    <td>{{$data->jenis_kelamin}}</td>
-                    <td>{{$data->agama}}</td>
-                    <td>{{$data->alamat}}</td>
-                    <td>
-                        <a href="/siswa/{{$data->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="/siswa/{{$data->id}}/delete" onclick="return confirm('yakin mau dihapus?')" class="btn btn-danger btn-sm">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Data Siswa</h3>
+                    <!-- Button trigger modal -->
+                    <div class="right">
+                        <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i class="lnr lnr-plus-circle"></i></button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Nama Depan</th>
+                                <th>Nama Belakang</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Agama</th>
+                                <th>Alamat</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data_siswa as $data)
+                            <tr>
+                                <td>{{$data->nama_depan}}</td>
+                                <td>{{$data->nama_belakang}}</td>
+                                <td>{{$data->jenis_kelamin}}</td>
+                                <td>{{$data->agama}}</td>
+                                <td>{{$data->alamat}}</td>
+                                <td>
+                                    <a href="/siswa/{{$data->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/siswa/{{$data->id}}/delete" onclick="return confirm('yakin mau dihapus?')"
+                                        class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -100,4 +99,5 @@
         </div>
     </div>
 </div>
+
 @endsection
